@@ -1,19 +1,41 @@
 import styled from 'styled-components'
 
 export const MovieListContainer = styled.div`
-   
+  width: 100vw;
+  overflow: hidden;
+`
+
+export const PlayList = styled.div`
+  position: relative;
+  display: flex;
+  button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    height: 100%;
+    color: white; 
+    font-size: 1.5em;
+    position: absolute;
+  }
+  
+  .right {
+    right: 0;
+    z-index: 2;
+  }
+
+  .left {
+    left: 0;
+    z-index: 2;
+  }
+
+
 `
 
 export const Carousel = styled.div`
   display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  overflow-y: hidden;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-
+  width: 100%;
+  transition: all 0.5s ease;
+  transform: ${({currentSlide})=>`translateX(-${currentSlide}00%)`};
+  position: relative;
 `
 
 export const Movie = styled.div`

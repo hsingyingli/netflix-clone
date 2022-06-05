@@ -7,6 +7,7 @@ export const Container = styled.div`
   height: 80vh;
   width: 100vw;
   position: relative;
+
   
   :after {
     content: '';
@@ -23,11 +24,12 @@ export const Container = styled.div`
 
 export const VideoInfo = styled.section`
   height: 100%;
-  width: min(500px, 80%);
+  width: min(700px, 80%);
   padding-left: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
 
   h1 {
     font-size: 3rem;

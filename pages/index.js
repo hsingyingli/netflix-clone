@@ -2,87 +2,74 @@ import Head from 'next/head';
 import {useEffect, useState} from 'react';
 import Banner from '../components/Banner';
 import MoviesList from '../components/MovieList';
+import Popup from '../components/Popup';
 import {Container, MovieSection} from '../styles/home';
 
-import {fetchMovies} from '../lib/axios/axios';
+import {fetchMovies, fetchPopularMovies} from '../lib/axios/axios';
 
 export default function Home({
-  actionMovies,
-  comedyMovies,
-  horrorMovies,
-  romanceMovies,
-  documentariesMovies,
+      disnayMovies,
+      productivityMovies,
+      travelMovies,
+      popularMovies
 }) {
+
   const [quota, setQuota] = useState(false);
   useEffect(() => {
     if (
-      actionMovies ||
-      comedyMovies ||
-      horrorMovies ||
-      romanceMovies ||
-      documentariesMovies
+      disnayMovies.status &&
+      productivityMovies.status &&
+      travelMovies.status &&
+      popularMovies.status 
     ) {
       setQuota(true);
     }
   }, [
-    actionMovies,
-    comedyMovies,
-    horrorMovies,
-    romanceMovies,
-    documentariesMovies,
+      disnayMovies,
+      productivityMovies,
+      travelMovies,
+      popularMovies
   ]);
 
-  if (!quota) {
-    return (
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100vh',
-        }}
-      >
-        Have exceeded youtube api quota, try tomorrow!!
-      </div>
-    );
-  }
+  
+
   return (
     <Container>
+      {!quota && <Popup content='Have exceeded youtube api quota!! Not able to watch video here'/>}
       <Head>
         <title>Netflix Clone</title>
         <meta name="description" content="Home page" />
       </Head>
-      <Banner />
+      <Banner movie={popularMovies.data.items[0]}/>
       <MovieSection>
-        <MoviesList title="Comedy" movies={comedyMovies} imgSize="medium" />
-        <MoviesList title="Action" movies={actionMovies} imgSize="medium" />
-        <MoviesList title="Horror" movies={horrorMovies} imgSize="medium" />
-        <MoviesList title="Romance" movies={romanceMovies} imgSize="medium" />
-        <MoviesList
-          title="Documentaries"
-          movies={documentariesMovies}
-          imgSize="medium"
-        />
+        <MoviesList title="Popular" movies={popularMovies.data.items} imgSize="medium" />
+        <MoviesList title="Disney" movies={disnayMovies.data.items} imgSize="medium" />
+        <MoviesList title="Travel" movies={travelMovies.data.items} imgSize="medium" />
+        <MoviesList title="Productivity" movies={productivityMovies.data.items} imgSize="medium" />
       </MovieSection>
-      :
+
+      
     </Container>
   );
 }
 
 export async function getServerSideProps() {
-  const actionMovies = await fetchMovies('action');
-  const comedyMovies = await fetchMovies('comedy');
-  const horrorMovies = await fetchMovies('horror');
-  const romanceMovies = await fetchMovies('romance');
-  const documentariesMovies = await fetchMovies('documentaries');
+  const disnayMovies = await fetchMovies('disnay trailer');
+  const productivityMovies = await fetchMovies('productivity');
+  const travelMovies = await fetchMovies('travel');
+  const popularMovies = await fetchPopularMovies();
+
+  console.log(disnayMovies)
+  console.log(productivityMovies)
+  console.log(travelMovies)
+  console.log(popularMovies)
 
   return {
     props: {
-      actionMovies,
-      comedyMovies,
-      horrorMovies,
-      romanceMovies,
-      documentariesMovies,
+      disnayMovies,
+      productivityMovies,
+      travelMovies,
+      popularMovies
     },
   };
 }
