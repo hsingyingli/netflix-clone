@@ -4,22 +4,9 @@ export const Container = styled.div`
   background-image: ${({bgImage}) => bgImage};
   background-size: cover;
   background-position: center center;
-  height: 70vh;
+  height: 80vh;
   width: 100vw;
   position: relative;
-  
-
-  :before {
-    content: '';
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8) 99%);
-    width: 100%;
-    height: 3em;
-  }
   
   :after {
     content: '';
@@ -42,6 +29,14 @@ export const VideoInfo = styled.section`
   flex-direction: column;
   justify-content: center;
 
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
   button {
     width: 5rem;
     height: 2rem;
@@ -49,11 +44,12 @@ export const VideoInfo = styled.section`
     border-radius: 5px;
     border: none;
     color: white;
-    background-color: rgba(15,15,14, 0.5);
+    background-color: rgba(15,15,14, 0.8);
     font-weight: bold;
   }
 
   button: hover {
     background-color: rgba(15,15,14, 0.2);
+    color: ${({theme})=>theme.color.gray300};
   }
 `;

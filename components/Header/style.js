@@ -11,17 +11,22 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   z-index: 99;
+  background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8) 99%);
   
+  .logo-img {
+    cursor: pointer;
+  }
 `
 
 export const Navbar = styled.nav`
   ul {
-
+    list-style: none;
   }
 
   li {
     display: inline;
     margin-left: 1rem;
+    cursor: pointer;
   }
 
   @media only screen and ${({theme})=>theme.breakpoints.md} {
@@ -33,6 +38,6 @@ export const Navbar = styled.nav`
 
 
 `
-export const UserInfo = styled.div`
+export const UserInfo = styled.nav`
   margin-left: auto;
 `

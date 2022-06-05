@@ -1,23 +1,23 @@
-import {useEffect, useState} from 'react'
-import {fetchMovies} from '../../lib/axios/axios'
-import { MovieListContainer } from './style'; 
+import { Carousel, Movie, MovieListContainer } from './style'; 
+import Image from 'next/image';
 
-const MoviesList = ({title, category}) => {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(()=> {
-    const fetchData = async () => {
-      const res = await fetchMovies(category)
-      setMovies(res.data.results)
-      return res;
-    }
-    fetchData()
-  }, [category])
-  console.log(movies)
-
+const MoviesList = ({title, movies, imgSize}) => {
   return (
     <MovieListContainer>
       <h2>{title}</h2>
+      <Carousel>
+        {movies?.map((movie)=> {
+          const imgUrl = movie.snippet.thumbnails[imgSize].url;
+          const width = movie.snippet.thumbnails[imgSize].width;
+          const height = movie.snippet.thumbnails[imgSize].height;
+          const alt = movie.snippet.title;
+          return (
+            <Movie key={movie.id.videoId} width={width} height={height}> 
+              <Image className='movie-img' src={imgUrl} alt={alt} layout='fill'/>
+            </Movie> 
+          )
+       })}
+      </Carousel>
       
         
     </MovieListContainer>
