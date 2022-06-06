@@ -1,6 +1,7 @@
 import {HeaderContainer, Navbar, UserInfo} from './style';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { magic } from '../../lib/magic/magic-client';
 
 const Header = () => {
   const router = useRouter();

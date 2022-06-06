@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const PopupContainer = styled.div`
-  display: ${({display})=> display? 'flex' : 'none'};
+  display: ${({display})=> display==="true"? 'flex' : 'none'};
   width: 100vw;
   height: 100vh;
   justify-content: center;
@@ -20,5 +20,11 @@ export const PopupContent = styled.div`
     color: white;
     float: right;
     cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  p{
+    font-size: 1.2rem;
   }
 `

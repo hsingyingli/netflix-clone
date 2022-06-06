@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.header`
   background: transparents;
   width: 100vw;
   height: 2rem;
@@ -10,7 +10,7 @@ export const HeaderContainer = styled.div`
   padding: 5px 0;
   display: flex;
   align-items: center;
-  z-index: 99;
+  z-index: 98;
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8) 99%);
   
   .logo-img {

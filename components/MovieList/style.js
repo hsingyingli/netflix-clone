@@ -41,6 +41,8 @@ export const Carousel = styled.div`
 export const Movie = styled.div`
   min-width: ${({width})=> width}px;
   min-height: ${({height})=> height}px;
+  border-radius: 0.5rem;
+  overflow: hidden;
 
   margin: 0 7px;
 
