@@ -43,7 +43,7 @@ export const Movie = styled.div`
   min-height: ${({height})=> height}px;
   border-radius: 0.5rem;
   overflow: hidden;
-
+  cursor: pointer;
   margin: 0 7px;
 
   position: relative;
