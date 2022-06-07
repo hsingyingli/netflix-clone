@@ -3,9 +3,9 @@ import {PopupContainer, PopupContent} from "./style"
 import {AiOutlineClose} from 'react-icons/ai'
 
 const Popup = ({content}) => {
-  const [display, setDisplay] = useState(true)
+  const [display, setDisplay] = useState('true')
   const handleOnClick = useCallback(()=> {
-    setDisplay(prev=> !prev)
+    setDisplay('false')
   }, [])
   return (
     <PopupContainer display={display}>

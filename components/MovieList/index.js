@@ -1,6 +1,7 @@
 import {useMemo, useRef, useState, useEffect, useCallback} from 'react';
 import {Carousel, Movie, MovieListContainer, PlayList} from './style';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import {MdOutlineChevronLeft, MdOutlineChevronRight} from 'react-icons/md';
 
 const MoviesList = ({title, movies, imgSize}) => {
@@ -9,6 +10,7 @@ const MoviesList = ({title, movies, imgSize}) => {
   const numOfMovies = useMemo(() => movies?.length, [movies]);
   const movieRef = useRef(null);
   const carouselRef = useRef(null);
+  const router = useRouter();
 
   const handleResize = useCallback(() => {
     if (movieRef.current && carouselRef.current) {
@@ -33,6 +35,7 @@ const MoviesList = ({title, movies, imgSize}) => {
     setCurrentSlide((prev) => (prev >= maxSlides ? 0 : prev + 1));
   };
 
+
   return (
     <MovieListContainer>
       <h2>{title}</h2>
@@ -46,8 +49,11 @@ const MoviesList = ({title, movies, imgSize}) => {
             const width = movie.snippet.thumbnails[imgSize].width;
             const height = movie.snippet.thumbnails[imgSize].height;
             const alt = movie.snippet.title;
+            const videoId = movie.id?.videoId || movie.id;
             return (
-              <Movie ref={movieRef} key={id} width={width} height={height}>
+              <Movie ref={movieRef} key={id} width={width} height={height} onClick={()=> {
+                  router.push(`/video/${videoId}`)
+              }}>
                 <Image
                   className="movie-img"
                   src={imgUrl}

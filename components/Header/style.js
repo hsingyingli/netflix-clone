@@ -38,6 +38,40 @@ export const Navbar = styled.nav`
 
 
 `
-export const UserInfo = styled.nav`
+export const UserInfo = styled.div`
+  display: flex;
+  align-items: center;
   margin-left: auto;
+  padding-right: 2rem;
+  color: white;
+  font-size: 1.5em;
+
+
+  p {
+    padding-right: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  span {
+    display: none;
+  }
+  
+  div {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+  }
+
+  div:hover span {
+    display: inline;
+    font-size: 0.8rem;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.25rem;
+    color: white;
+    top: 2rem;
+    padding 0.125rem;
+  }
 `
+

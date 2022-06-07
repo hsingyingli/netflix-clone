@@ -4,7 +4,6 @@ import Banner from '../components/Banner';
 import MoviesList from '../components/MovieList';
 import Popup from '../components/Popup';
 import {Container, MovieSection} from '../styles/home';
-import Magic from '../lib/magic/magic-client';
 
 import {fetchMovies, fetchPopularMovies} from '../lib/axios/axios';
 import Layout from '../components/Layout';
@@ -31,7 +30,7 @@ export default function Home({
     <Layout>
       <Container>
         {!quota && (
-          <Popup content="Have exceeded youtube api quota!! It shows static data. Unable to watch video" />
+          <Popup content="Have exceeded youtube api quota!! It shows static data." />
         )}
         <Head>
           <title>Netflix Clone</title>

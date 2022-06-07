@@ -24,19 +24,21 @@ export const Container = styled.div`
 
 export const VideoInfo = styled.section`
   height: 100%;
-  width: min(700px, 80%);
+  max-width: min(700px, 80%);
   padding-left: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
 
-  h1 {
+  h1>span {
     font-size: 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
-  p {
+  p>span {
     font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
   button {
