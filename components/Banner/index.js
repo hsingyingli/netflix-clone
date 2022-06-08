@@ -1,4 +1,3 @@
-import {useState, useEffect} from 'react'
 import { useRouter } from 'next/router';
 import {Container, VideoInfo} from './style';
 
@@ -22,6 +21,8 @@ const Banner = ({movie}) => {
           <button onClick={handleOnPlay}>Play</button>
         </div>
       </VideoInfo>
+    
+
     </Container>
   );
 };

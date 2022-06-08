@@ -56,4 +56,16 @@ export const VideoInfo = styled.section`
     background-color: rgba(15,15,14, 0.2);
     color: ${({theme})=>theme.color.gray300};
   }
+
+
+  @media only screen and ${({theme})=>theme.breakpoints.md} {
+    h1>span {
+      font-size: 1.5rem;
+    }
+
+    p>span {
+      font-size: 1rem;
+    }
+  }
+
 `;

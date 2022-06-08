@@ -15,6 +15,7 @@ export const PlayList = styled.div`
     color: white; 
     font-size: 1.5em;
     position: absolute;
+    cursor: pointer;
   }
   
   .right {
@@ -27,6 +28,9 @@ export const PlayList = styled.div`
     z-index: 2;
   }
 
+  @media only screen and ${({theme})=>theme.breakpoints.md} {
+    font-size: 0.8em;
+  }
 
 `
 
@@ -61,6 +65,11 @@ export const Movie = styled.div`
 
   .movie-img:hover{
     transform: scale(1.1);
+  }
+
+  @media only screen and ${({theme})=>theme.breakpoints.sm} {
+    min-width: 200px;
+    min-height: 120px;
   }
 `
 

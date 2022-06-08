@@ -71,7 +71,17 @@ export const UserInfo = styled.div`
     border-radius: 0.25rem;
     color: white;
     top: 2rem;
-    padding 0.125rem;
+    padding: 0.125rem;
+  }
+
+
+  @media only screen and ${({theme})=>theme.breakpoints.sm}{
+    padding-right: 1rem;
+    font-size: 1.2em;
+
+    p {
+      display: none;
+    }
   }
 `
 
